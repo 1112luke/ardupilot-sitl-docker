@@ -33,18 +33,13 @@ RUN su -c "Tools/environment_install/install-prereqs-ubuntu.sh -y" dockeruser
 RUN export PATH=$PATH:/ardupilot/Tools/autotest
 RUN export PATH=/usr/lib/ccache:$PATH
 
-# Install Python 3 and ensure pip is available
+# Install required Python packages
 RUN apt-get update && apt-get install -y python3 python3-pip && \
     ln -sf /usr/bin/python3 /usr/bin/python && \
     ln -sf /usr/bin/pip3 /usr/bin/pip
 
-# Install empy using pip
-RUN pip install empy
-
-# Install pexpect
-RUN pip install pexpect
-
-RUN python -m pip install empy
+# Install necessary Python modules
+RUN pip install --upgrade empy future pexpect
 
 # Continue build instructions from https://github.com/ArduPilot/ardupilot/blob/master/BUILD.md
 RUN ./waf distclean
