@@ -32,6 +32,7 @@ RUN su -c "Tools/environment_install/install-prereqs-ubuntu.sh -y" dockeruser
 
 RUN export PATH=$PATH:$HOME/ardupilot/Tools/autotest
 RUN export PATH=/usr/lib/ccache:$PATH
+RUN export PATH=$PATH:/ardupilot/Tools/autotest
 
 RUN python -m pip install empy
 
