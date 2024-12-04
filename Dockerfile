@@ -33,11 +33,13 @@ RUN su -c "Tools/environment_install/install-prereqs-ubuntu.sh -y" dockeruser
 RUN export PATH=$PATH:/ardupilot/Tools/autotest
 RUN export PATH=/usr/lib/ccache:$PATH
 
-# Install Python 3 and pip
-RUN apt-get update && apt-get install -y python3 python3-pip
+# Install Python 3 and ensure pip is available
+RUN apt-get update && apt-get install -y python3 python3-pip && \
+    ln -sf /usr/bin/python3 /usr/bin/python && \
+    ln -sf /usr/bin/pip3 /usr/bin/pip
 
-# Create a symlink to make 'python' point to 'python3'
-RUN ln -sf /usr/bin/python3 /usr/bin/python
+# Install empy using pip
+RUN pip install empy
 
 # Install empy using pip
 RUN pip install empy
