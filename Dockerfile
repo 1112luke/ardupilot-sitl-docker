@@ -41,8 +41,8 @@ RUN apt-get update && apt-get install -y python3 python3-pip && \
 # Install empy using pip
 RUN pip install empy
 
-# Install empy using pip
-RUN pip install empy
+# Install pexpect
+RUN pip install pexpect
 
 RUN python -m pip install empy
 
