@@ -33,8 +33,6 @@ RUN su -c "Tools/environment_install/install-prereqs-ubuntu.sh -y" dockeruser
 RUN export PATH=$PATH:/ardupilot/Tools/autotest
 RUN export PATH=/usr/lib/ccache:$PATH
 
-RUN apt-install python-pip
-
 RUN python -m pip install empy
 
 # Continue build instructions from https://github.com/ArduPilot/ardupilot/blob/master/BUILD.md
