@@ -49,7 +49,6 @@ RUN python -m pip install empy
 # Run waf build for SITL (no need for copter)
 RUN ./waf distclean
 RUN ./waf configure --board sitl
-RUN ./waf sitl
 
 # TCP 5760 is what the sim exposes by default
 EXPOSE 5760/tcp
