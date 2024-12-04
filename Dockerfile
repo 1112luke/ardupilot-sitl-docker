@@ -46,13 +46,10 @@ RUN pip install empy
 
 RUN python -m pip install empy
 
-# Continue build instructions from https://github.com/ArduPilot/ardupilot/blob/master/BUILD.md
+# Run waf build for SITL (no need for copter)
 RUN ./waf distclean
 RUN ./waf configure --board sitl
-RUN ./waf copter
-RUN ./waf rover 
-RUN ./waf plane
-RUN ./waf sub
+RUN ./waf sitl
 
 # TCP 5760 is what the sim exposes by default
 EXPOSE 5760/tcp
