@@ -30,9 +30,8 @@ RUN echo 'dockeruser ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 ENV SKIP_AP_GIT_CHECK=1
 RUN su -c "Tools/environment_install/install-prereqs-ubuntu.sh -y" dockeruser
 
-RUN export PATH=$PATH:$HOME/ardupilot/Tools/autotest
-RUN export PATH=/usr/lib/ccache:$PATH
 RUN export PATH=$PATH:/ardupilot/Tools/autotest
+RUN export PATH=/usr/lib/ccache:$PATH
 
 RUN python -m pip install empy
 
